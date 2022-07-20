@@ -1,4 +1,4 @@
-module github.com/faiface/glhf
+module github.com/shinomontaz/glhf
 
 go 1.16
 
