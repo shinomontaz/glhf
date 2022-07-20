@@ -6,9 +6,9 @@ import (
 	_ "image/png"
 	"os"
 
-	"github.com/faiface/glhf"
 	"github.com/faiface/mainthread"
 	"github.com/go-gl/glfw/v3.1/glfw"
+	"github.com/shinomontaz/glhf"
 )
 
 func loadImage(path string) (*image.NRGBA, error) {
