@@ -209,19 +209,27 @@ func (s *Shader) SetUniformAttr(uniform int, value interface{}) (ok bool) {
 	case FloatArr:
 		value := value.([]float32)
 		length := int32(len(value))
-		gl.Uniform1fv(s.uniformLoc[uniform], length, &value[0])
+		if length > 0 {
+			gl.Uniform1fv(s.uniformLoc[uniform], length, &value[0])
+		}
 	case Vec2Arr:
 		value := value.([]mgl32.Vec2)
 		length := int32(len(value))
-		gl.Uniform2fv(s.uniformLoc[uniform], length, &value[0][0])
+		if length > 0 {
+			gl.Uniform2fv(s.uniformLoc[uniform], length, &value[0][0])
+		}
 	case Vec4Arr:
 		value := value.([]mgl32.Vec4)
 		length := int32(len(value))
-		gl.Uniform4fv(s.uniformLoc[uniform], length, &value[0][0])
+		if length > 0 {
+			gl.Uniform4fv(s.uniformLoc[uniform], length, &value[0][0])
+		}
 	case Mat2Arr:
 		value := value.([]mgl32.Mat2)
 		length := int32(len(value))
-		gl.UniformMatrix2fv(s.uniformLoc[uniform], length, false, &value[0][0])
+		if length > 0 {
+			gl.UniformMatrix2fv(s.uniformLoc[uniform], length, false, &value[0][0])
+		}
 	default:
 		panic("set uniform attr: invalid attribute type")
 	}
